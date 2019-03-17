@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     38126,        806]
-NotebookOptionsPosition[     36981,        780]
-NotebookOutlinePosition[     37347,        796]
-CellTagsIndexPosition[     37304,        793]
+NotebookDataLength[     47385,       1006]
+NotebookOptionsPosition[     46175,        981]
+NotebookOutlinePosition[     46539,        997]
+CellTagsIndexPosition[     46496,        994]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -49,18 +49,28 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
     RowBox[{"image2", ",", " ", "\"\<Byte\>\""}], "]"}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"M1diff", " ", "=", " ", 
+  RowBox[{"m1diff", " ", "=", " ", 
    RowBox[{"image2", "-", "image1"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"m1diff", " ", "=", " ", 
+    RowBox[{"Map", "[", 
+     RowBox[{"TwosComplementSuperList", ",", " ", "m1diff", ",", " ", 
+      RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "store", " ", "m1diff", " ", "as", " ", "its", " ", "twos", " ", 
+    "complement", " ", "array"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mSize", " ", "=", " ", 
    RowBox[{
-    RowBox[{"Dimensions", "[", "M1diff", "]"}], "[", 
+    RowBox[{"Dimensions", "[", "m1diff", "]"}], "[", 
     RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"nSize", " ", "=", " ", 
     RowBox[{
-     RowBox[{"Dimensions", "[", "M1diff", "]"}], "[", 
+     RowBox[{"Dimensions", "[", "m1diff", "]"}], "[", 
      RowBox[{"[", "2", "]"}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -143,61 +153,58 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
      "blockFactor_Integer"}], "]"}], ":=", 
    RowBox[{"(", " ", "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{
-      RowBox[{"twosArray", " ", "=", " ", 
-       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"twosArray", " ", "=", 
-       RowBox[{"a", "[", 
-        RowBox[{"[", 
-         RowBox[{
-          RowBox[{"startR", ";;", 
-           RowBox[{"Min", "[", 
-            RowBox[{"mSize", ",", 
-             RowBox[{"(", 
-              RowBox[{"startR", "+", "blockFactor", "-", "1"}], ")"}]}], 
-            "]"}]}], " ", ",", 
-          RowBox[{"startC", ";;", 
-           RowBox[{"Min", "[", 
-            RowBox[{"nSize", ",", 
-             RowBox[{"(", 
-              RowBox[{"startC", "+", "blockFactor", "-", "1"}], ")"}]}], 
-            "]"}]}]}], "]"}], "]"}]}]}], ",", " ", 
-     RowBox[{
-      RowBox[{"{", "3", "}"}], ";", " ", "\[IndentingNewLine]", 
-      RowBox[{"blockUnitLength", " ", "=", " ", 
-       RowBox[{"Max", "[", 
-        RowBox[{"Map", "[", 
-         RowBox[{"Length", ",", " ", "twosArray", ",", " ", 
-          RowBox[{"{", "3", "}"}]}], "]"}], "]"}]}], ";", " ", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "Look", " ", "at", " ", "the", " ", "length", " ", "of", " ", "arrays",
-         " ", "at", " ", "level", " ", "2", " ", 
-        RowBox[{"(", 
-         RowBox[{"the", " ", "lists", " ", "of", " ", "bits", " ", "in", " ", 
-          RowBox[{"two", "'"}], "s", " ", "complement", " ", "for", " ", 
-          "each", " ", "matrix", " ", "element"}], ")"}]}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"blockDef", " ", "=", " ", 
-       RowBox[{"IntegerDigits", "[", 
-        RowBox[{"blockUnitLength", ",", " ", "2", ",", " ", "9"}], "]"}]}], 
-      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"twosArray", " ", "=", " ", 
-       RowBox[{
+     RowBox[{"twosArray", " ", "=", " ", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"twosArray", " ", "=", 
+      RowBox[{"a", "[", 
+       RowBox[{"[", 
         RowBox[{
-         RowBox[{"PadElem", "[", 
-          RowBox[{"#", ",", " ", "blockUnitLength"}], "]"}], "&"}], " ", "/@",
-         " ", 
-        RowBox[{"Level", "[", 
-         RowBox[{"twosArray", ",", " ", 
-          RowBox[{"{", "3", "}"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{"Prepend", "[", 
-        RowBox[{
-         RowBox[{"Flatten", "[", "twosArray", "]"}], ",", " ", "blockDef"}], 
-        "]"}], "]"}], ";"}]}], "\[IndentingNewLine]", ")"}]}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+         RowBox[{"startR", ";;", 
+          RowBox[{"Min", "[", 
+           RowBox[{"mSize", ",", 
+            RowBox[{"(", 
+             RowBox[{"startR", "+", "blockFactor", "-", "1"}], ")"}]}], 
+           "]"}]}], " ", ",", 
+         RowBox[{"startC", ";;", 
+          RowBox[{"Min", "[", 
+           RowBox[{"nSize", ",", 
+            RowBox[{"(", 
+             RowBox[{"startC", "+", "blockFactor", "-", "1"}], ")"}]}], 
+           "]"}]}]}], "]"}], "]"}]}], ";", " ", "\[IndentingNewLine]", 
+     RowBox[{"blockUnitLength", " ", "=", " ", 
+      RowBox[{"Max", "[", 
+       RowBox[{"Map", "[", 
+        RowBox[{"Length", ",", " ", "twosArray", ",", " ", 
+         RowBox[{"{", "3", "}"}]}], "]"}], "]"}]}], ";", " ", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Look", " ", "at", " ", "the", " ", "length", " ", "of", " ", "arrays", 
+       " ", "at", " ", "level", " ", "2", " ", 
+       RowBox[{"(", 
+        RowBox[{"the", " ", "lists", " ", "of", " ", "bits", " ", "in", " ", 
+         RowBox[{"two", "'"}], "s", " ", "complement", " ", "for", " ", 
+         "each", " ", "matrix", " ", "element"}], ")"}]}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"blockDef", " ", "=", " ", 
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"blockUnitLength", ",", " ", "2", ",", " ", "4"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"twosArray", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"PadElem", "[", 
+         RowBox[{"#", ",", " ", "blockUnitLength"}], "]"}], "&"}], " ", "/@", 
+       " ", 
+       RowBox[{"Level", "[", 
+        RowBox[{"twosArray", ",", " ", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{"Flatten", "[", "twosArray", "]"}], ",", " ", "blockDef"}], 
+       "]"}], "]"}]}], "\[IndentingNewLine]", ")"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"GetBlockNumberData", "[", 
    RowBox[{
@@ -245,21 +252,21 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
       RowBox[{
       "change", " ", "max", " ", "blockfactor", " ", "size", " ", 
        "calculation"}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"i", " ", "=", " ", "2"}], ",", "  ", 
-        RowBox[{"i", " ", "<=", " ", 
-         RowBox[{"Min", "[", 
-          RowBox[{"mSize", ",", "nSize"}], "]"}]}], ",", " ", 
-        RowBox[{"i", "++"}], ",", " ", 
-        RowBox[{"(", " "}]}]}], "*)"}], "\[IndentingNewLine]", 
      RowBox[{"For", "[", 
       RowBox[{
        RowBox[{"i", " ", "=", " ", "2"}], ",", "  ", 
-       RowBox[{"i", " ", "<=", " ", "5"}], ",", " ", 
+       RowBox[{"i", " ", "<=", " ", 
+        RowBox[{"Min", "[", 
+         RowBox[{"mSize", ",", "nSize"}], "]"}]}], ",", " ", 
        RowBox[{"i", "++"}], ",", " ", 
        RowBox[{"(", " ", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", " ", "=", " ", "2"}], ",", "  ", 
+           RowBox[{"i", " ", "<=", " ", "5"}], ",", " ", 
+           RowBox[{"i", "++"}], ",", " ", 
+           RowBox[{"(", " "}]}]}], "*)"}], "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"tempSize", " ", "=", " ", 
           RowBox[{"GetImageSize", "[", 
@@ -292,75 +299,78 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
                   RowBox[{"mSize", ",", "nSize"}], "]"}]}], "*)"}], ","}], 
               "]"}]}], "]"}]}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
       "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Optimum block factor is \>\"", ",", "currentBlockFactor"}],
+       "]"}], ";", "\[IndentingNewLine]", 
      RowBox[{"Return", "[", "currentBlockFactor", "]"}]}], 
-    "\[IndentingNewLine]", ")"}]}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"GetOptimumImage", "[", "mat_List", "]"}], " ", ":=", " ", 
-   RowBox[{"(", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"currentMin", " ", "=", " ", 
-      RowBox[{"-", "1"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"currentBlockFactor", " ", "=", " ", 
-      RowBox[{"-", "1"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-      "change", " ", "max", " ", "blockfactor", " ", "size", " ", 
-       "calculation"}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"(*", 
+    "\[IndentingNewLine]", ")"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"GetOptimumImage", "[", "mat_List", "]"}], " ", ":=", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"currentMin", " ", "=", " ", 
+       RowBox[{"-", "1"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"currentBlockFactor", " ", "=", " ", 
+       RowBox[{"-", "1"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "change", " ", "max", " ", "blockfactor", " ", "size", " ", 
+        "calculation"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", " ", "=", " ", "2"}], ",", "  ", 
+         RowBox[{"i", " ", "<=", " ", 
+          RowBox[{"Min", "[", 
+           RowBox[{"mSize", ",", "nSize"}], "]"}]}], ",", " ", 
+         RowBox[{"i", "++"}], ",", " ", 
+         RowBox[{"(", " "}]}]}], "*)"}], "\[IndentingNewLine]", 
       RowBox[{"For", "[", 
        RowBox[{
         RowBox[{"i", " ", "=", " ", "2"}], ",", "  ", 
-        RowBox[{"i", " ", "<=", " ", 
-         RowBox[{"Min", "[", 
-          RowBox[{"mSize", ",", "nSize"}], "]"}]}], ",", " ", 
+        RowBox[{"i", " ", "<=", " ", "5"}], ",", " ", 
         RowBox[{"i", "++"}], ",", " ", 
-        RowBox[{"(", " "}]}]}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"For", "[", 
-      RowBox[{
-       RowBox[{"i", " ", "=", " ", "2"}], ",", "  ", 
-       RowBox[{"i", " ", "<=", " ", "5"}], ",", " ", 
-       RowBox[{"i", "++"}], ",", " ", 
-       RowBox[{"(", " ", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"tempSize", " ", "=", " ", 
-          RowBox[{"GetImageSize", "[", 
-           RowBox[{"mat", ",", " ", "i"}], "]"}]}], ";", " ", 
-         RowBox[{"(*", 
-          RowBox[{
-          "need", " ", "to", " ", "keep", " ", "the", " ", "encoded", " ", 
-           "image", " ", 
-           RowBox[{"blocks", "!!"}]}], "*)"}], "\[IndentingNewLine]", 
-         RowBox[{"If", "[", 
-          RowBox[{
-           RowBox[{"currentMin", " ", "\[Equal]", " ", 
-            RowBox[{"-", "1"}]}], ",", " ", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"currentMin", " ", "=", " ", "tempSize"}], ";", " ", 
-             RowBox[{"currentBlockFactor", " ", "=", " ", "i"}]}], ")"}], ",",
-            " ", "\[IndentingNewLine]", "\t", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"tempSize", " ", "<", " ", "currentMin"}], ",", " ", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"currentMin", " ", "=", " ", "tempSize"}], ";", " ", 
-               RowBox[{"currentBlockFactor", " ", "=", " ", "i"}]}], ")"}], 
-             ",", " ", "\[IndentingNewLine]", "\t\t", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"tempSize", " ", ">", " ", 
-                RowBox[{"2", "*", "currentMin"}]}], ",", " ", 
-               RowBox[{"(*", 
-                RowBox[{"i", " ", "=", " ", 
-                 RowBox[{"Min", "[", 
-                  RowBox[{"mSize", ",", "nSize"}], "]"}]}], "*)"}], ","}], 
-              "]"}]}], "]"}]}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
-      "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Return", "[", "currentBlockFactor", "]"}]}], 
-    "\[IndentingNewLine]", ")"}]}], 
+        RowBox[{"(", " ", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"tempSize", " ", "=", " ", 
+           RowBox[{"GetImageSize", "[", 
+            RowBox[{"mat", ",", " ", "i"}], "]"}]}], ";", " ", 
+          RowBox[{"(*", 
+           RowBox[{
+           "need", " ", "to", " ", "keep", " ", "the", " ", "encoded", " ", 
+            "image", " ", 
+            RowBox[{"blocks", "!!"}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"currentMin", " ", "\[Equal]", " ", 
+             RowBox[{"-", "1"}]}], ",", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"currentMin", " ", "=", " ", "tempSize"}], ";", " ", 
+              RowBox[{"currentBlockFactor", " ", "=", " ", "i"}]}], ")"}], 
+            ",", " ", "\[IndentingNewLine]", "\t", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"tempSize", " ", "<", " ", "currentMin"}], ",", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"currentMin", " ", "=", " ", "tempSize"}], ";", " ", 
+                RowBox[{"currentBlockFactor", " ", "=", " ", "i"}]}], ")"}], 
+              ",", " ", "\[IndentingNewLine]", "\t\t", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"tempSize", " ", ">", " ", 
+                 RowBox[{"2", "*", "currentMin"}]}], ",", " ", 
+                RowBox[{"(*", 
+                 RowBox[{"i", " ", "=", " ", 
+                  RowBox[{"Min", "[", 
+                   RowBox[{"mSize", ",", "nSize"}], "]"}]}], "*)"}], ","}], 
+               "]"}]}], "]"}]}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "currentBlockFactor", "]"}]}], 
+     "\[IndentingNewLine]", ")"}]}], "*)"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -408,68 +418,7 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
         RowBox[{"mSize", "/", "blockFactor"}], ")"}]}], " ", "*)"}], 
      "\[IndentingNewLine]", 
      RowBox[{"Flatten", "[", "fullImage", "]"}]}], "\[IndentingNewLine]", 
-    ")"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"GetFullTest", "[", "mat_List", "]"}], " ", ":=", " ", 
-   RowBox[{"(", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"fullTwosArray", " ", "=", " ", 
-      RowBox[{"Map", "[", 
-       RowBox[{"TwosComplementSuperList", ",", " ", "mat", ",", " ", 
-        RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"blockFactor", " ", "=", " ", 
-      RowBox[{"GetOptimumBlockFactor", "[", "fullTwosArray", "]"}]}], ";", 
-     "\[IndentingNewLine]", "blockFactor"}], "\[IndentingNewLine]", 
-    RowBox[{"(*", 
-     RowBox[{
-      RowBox[{"blockFactor", " ", "=", " ", "3"}], ";"}], "*)"}], 
-    "\[IndentingNewLine]", 
-    RowBox[{"(*", 
-     RowBox[{
-      RowBox[{"Print", "[", "blockFactor", "]"}], ";"}], "*)"}], 
-    "\[IndentingNewLine]", 
-    RowBox[{"(*", 
-     RowBox[{
-      RowBox[{"fullImage", " ", "=", 
-       RowBox[{"{", 
-        RowBox[{"IntegerDigits", "[", 
-         RowBox[{"blockFactor", ",", " ", "2", ",", " ", "8"}], "]"}], 
-        "}"}]}], ";", " ", 
-      RowBox[{"(*", 
-       RowBox[{
-        RowBox[{
-        "Encode", " ", "the", " ", "block", " ", "factor", " ", "in", " ", 
-         "binary", " ", "at", " ", "beginning"}], ",", " ", 
-        RowBox[{"using", " ", "8", " ", "bits"}]}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"Do", "[", 
-       RowBox[{
-        RowBox[{"fullImage", " ", "=", " ", 
-         RowBox[{"Join", "[", 
-          RowBox[{"fullImage", ",", " ", 
-           RowBox[{"GetBlockNumberData", "[", 
-            RowBox[{
-            "fullTwosArray", ",", " ", "m", ",", " ", "n", ",", " ", 
-             "blockFactor"}], "]"}]}], "]"}]}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"m", ",", " ", "1", ",", " ", 
-          RowBox[{"Ceiling", "[", 
-           RowBox[{"mSize", "/", "blockFactor"}], "]"}]}], "}"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"n", ",", " ", "1", ",", " ", 
-          RowBox[{"Ceiling", "[", 
-           RowBox[{"nSize", "/", "blockFactor"}], "]"}]}], "}"}]}], "]"}], 
-      ";", " ", 
-      RowBox[{"(*", 
-       RowBox[{
-       "Do", " ", "this", " ", "join", " ", "function", " ", "for", " ", "k", 
-        " ", "values", " ", "1", " ", "through", " ", "Ceil", 
-        RowBox[{"(", 
-         RowBox[{"mSize", "/", "blockFactor"}], ")"}]}], " ", "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"Flatten", "[", "fullImage", "]"}]}], "*)"}], 
-    "\[IndentingNewLine]", ")"}]}], 
+    ")"}]}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"GetImageSize", "[", 
@@ -493,7 +442,12 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
          RowBox[{"n", ",", " ", "1", ",", " ", 
           RowBox[{"Ceiling", "[", 
            RowBox[{"nSize", "/", "blockFactor"}], "]"}]}], "}"}]}], "]"}], 
-      " ", "+", "8"}]}], ";", "\[IndentingNewLine]", "s"}], 
+      " ", "+", "8"}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Add", " ", "8", " ", "for", " ", "the", " ", "block", " ", "factor", 
+      " ", "definition", " ", "that", " ", "would", " ", "be", " ", "at", " ",
+       "the", " ", "beginning"}], "*)"}], "\[IndentingNewLine]", "s"}], 
    "\[IndentingNewLine]", ")"}]}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.7589772492309756`*^9, 3.75897733842875*^9}, {
    3.758977431367025*^9, 3.7589774332285576`*^9}, {3.7589781500829277`*^9, 
@@ -646,61 +600,75 @@ Sem\\\\stars2.jpg\>\"", ",", " ",
    3.7618385600051994`*^9, 3.761838563151613*^9}, 3.7618391837888746`*^9, {
    3.7618393998972416`*^9, 3.761839406591798*^9}, {3.761839455203106*^9, 
    3.7618394998549304`*^9}, {3.761839625944219*^9, 3.761839676388794*^9}, {
-   3.761839716282501*^9, 3.761839717250905*^9}},
- EmphasizeSyntaxErrors->True,
- CellLabel->
-  "In[143]:=",ExpressionUUID->"e617e23e-041d-4206-acc1-d548565b4fc3"],
+   3.761839716282501*^9, 3.761839717250905*^9}, {3.7618397501190295`*^9, 
+   3.7618397513128705`*^9}, {3.761839919079262*^9, 3.761839923629141*^9}, {
+   3.761839988281865*^9, 3.761840017834416*^9}, {3.761840077342952*^9, 
+   3.761840087564396*^9}, {3.7618401487273083`*^9, 3.761840155399679*^9}, {
+   3.761840275395416*^9, 3.7618402953999987`*^9}, {3.761840390764683*^9, 
+   3.7618404746357093`*^9}, {3.761840518629179*^9, 3.7618405317061043`*^9}, {
+   3.7618405760063195`*^9, 3.7618405797686605`*^9}, {3.7618406113090167`*^9, 
+   3.7618406157405972`*^9}, {3.7618414588957815`*^9, 3.761841486056322*^9}, {
+   3.7618415313118114`*^9, 3.76184153136065*^9}, 3.761841571692608*^9, {
+   3.761841676349825*^9, 3.761841705431568*^9}, {3.7618418144986734`*^9, 
+   3.761841837657113*^9}, {3.7618421062446675`*^9, 3.761842109602171*^9}, {
+   3.7618421534952145`*^9, 3.7618421824679294`*^9}, {3.761842325491337*^9, 
+   3.76184232879914*^9}, {3.761842367399472*^9, 3.76184239795043*^9}, {
+   3.761842632960408*^9, 3.761842633302494*^9}, {3.7618427572870455`*^9, 
+   3.7618427857058463`*^9}},ExpressionUUID->"e617e23e-041d-4206-acc1-\
+d548565b4fc3"],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.7590204645167704`*^9, 3.7590204722881536`*^9}, {
    3.761314219054098*^9, 3.761314223198064*^9}, {3.7614921477045183`*^9, 
    3.7614921482850933`*^9}, 3.7614986983358374`*^9},
  CellLabel->
-  "In[154]:=",ExpressionUUID->"6e51fd34-c6b7-4a4c-853d-2c9c8aaffeb7"],
+  "In[258]:=",ExpressionUUID->"6e51fd34-c6b7-4a4c-853d-2c9c8aaffeb7"],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.7613177472030277`*^9, 3.7613177616093187`*^9}, 
    3.7613178467393723`*^9, {3.761567452458677*^9, 3.7615674963005896`*^9}, {
    3.761568065789394*^9, 3.7615680687004986`*^9}, 3.7615681969019747`*^9},
  CellLabel->
-  "In[155]:=",ExpressionUUID->"11262ab7-21fc-4b78-9afc-d80e212be277"],
+  "In[259]:=",ExpressionUUID->"11262ab7-21fc-4b78-9afc-d80e212be277"],
 
-Cell[BoxData[
+Cell[CellGroupData[{
+
+Cell[BoxData[{
  RowBox[{
+  RowBox[{"file", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$TemporaryDirectory", ",", "\"\<test1\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fullImage", " ", "=", " ", 
+  RowBox[{
+  "GetFullEncodedImage", "[", "m1diff", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"file", ",", " ", "fullImage", ",", " ", "\"\<Bit\>\""}], "]"}], 
+  ";", " ", 
   RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"file", "=", 
-     RowBox[{"FileNameJoin", "[", 
-      RowBox[{"{", 
-       RowBox[{"$TemporaryDirectory", ",", "\"\<test1\>\""}], "}"}], "]"}]}], 
-    ";", "\[IndentingNewLine]", 
-    RowBox[{"fullImage", " ", "=", " ", 
-     RowBox[{"GetFullEncodedImage", "[", "M1diff", "]"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Export", "[", 
-     RowBox[{"file", ",", " ", "fullImage", ",", " ", "\"\<Bit\>\""}], "]"}], 
-    ";", " ", 
-    RowBox[{"(*", 
-     RowBox[{"Note", " ", "that", " ", 
-      RowBox[{"0", "'"}], "s", " ", "will", " ", "automatically", " ", "be", 
-      " ", "padded", " ", "to", " ", "the", " ", "end", " ", "until", " ", 
-      "the", " ", "file", " ", "contains", " ", "a", " ", "multiple", " ", 
-      "of", " ", "8", " ", "bits", " ", 
-      RowBox[{"(", 
-       RowBox[{"byte", " ", "representation"}], ")"}]}], "*)"}], 
-    "\[IndentingNewLine]", 
-    RowBox[{"originalImageSize", " ", "=", " ", 
-     RowBox[{
-      RowBox[{"mSize", " ", "*", "nSize", "*", 
-       RowBox[{"(", 
-        RowBox[{"3", "*", "8"}], ")"}], "\[IndentingNewLine]", "fileImport"}],
-       " ", "=", " ", 
-      RowBox[{"Import", "[", 
-       RowBox[{"file", ",", " ", "\"\<Bit\>\""}], "]"}]}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Print", "[", 
-     RowBox[{"Length", "[", "fileImport", "]"}], "]"}]}], "*)"}], 
-  "\[IndentingNewLine]"}]], "Input",
+   RowBox[{"Note", " ", "that", " ", 
+    RowBox[{"0", "'"}], "s", " ", "will", " ", "automatically", " ", "be", 
+    " ", "padded", " ", "to", " ", "the", " ", "end", " ", "until", " ", 
+    "the", " ", "file", " ", "contains", " ", "a", " ", "multiple", " ", "of",
+     " ", "8", " ", "bits", " ", 
+    RowBox[{"(", 
+     RowBox[{"byte", " ", "representation"}], ")"}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"originalImageSize", " ", "=", " ", 
+   RowBox[{"mSize", " ", "*", "nSize", "*", 
+    RowBox[{"(", 
+     RowBox[{"3", "*", "8"}], ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fileImport", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{"file", ",", " ", "\"\<Bit\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"Length", "[", "fileImport", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.759064058876412*^9, 3.7590640743552003`*^9}, {
    3.7590681013963747`*^9, 3.7590681258881207`*^9}, {3.759068220372489*^9, 
    3.7590682218259583`*^9}, {3.759068361734479*^9, 3.759068393267211*^9}, {
@@ -723,63 +691,296 @@ Cell[BoxData[
    3.7614975743550835`*^9}, {3.7614981665442696`*^9, 3.761498179595831*^9}, {
    3.7614985748933296`*^9, 3.761498583397363*^9}, {3.7614986167230883`*^9, 
    3.761498617149608*^9}, {3.7614986642371397`*^9, 3.761498668309355*^9}, {
-   3.7614987013637447`*^9, 3.7614987045479174`*^9}, 3.7615683716000004`*^9},
+   3.7614987013637447`*^9, 3.7614987045479174`*^9}, 3.7615683716000004`*^9, 
+   3.7618405797786107`*^9, {3.761842194382866*^9, 3.761842209528083*^9}, 
+   3.761842639469219*^9},
  CellLabel->
-  "In[156]:=",ExpressionUUID->"f0d682da-6d61-47af-9285-e1bdf5bf82b4"],
-
-Cell[CellGroupData[{
+  "In[260]:=",ExpressionUUID->"f0d682da-6d61-47af-9285-e1bdf5bf82b4"],
 
 Cell[BoxData[
- RowBox[{"GetFullTest", "[", "M1diff", "]"}]], "Input",
- CellChangeTimes->{{3.761568203998049*^9, 3.7615682501418576`*^9}, {
-   3.7615687960583982`*^9, 3.7615688187011375`*^9}, {3.761568853195107*^9, 
-   3.761568854776908*^9}, 3.761568897563136*^9, 3.7615689717237625`*^9},
- CellLabel->
-  "In[157]:=",ExpressionUUID->"0d7161d7-aadc-4f04-928a-e1816c81a689"],
-
-Cell[BoxData["2"], "Output",
- CellChangeTimes->{{3.761568974285941*^9, 3.7615690022567205`*^9}, 
-   3.7615690349592466`*^9, 3.761776149329048*^9, 3.7617762182210617`*^9, {
-   3.761776337104019*^9, 3.761776344612317*^9}, 3.7617765498161945`*^9, {
-   3.7617765994735637`*^9, 3.7617766901736345`*^9}, 3.761776732037917*^9, 
-   3.761776779962619*^9, 3.761838336292593*^9, 3.7618384434440155`*^9, 
-   3.7618390017822213`*^9, 3.7618391114145236`*^9, {3.761839190509794*^9, 
-   3.761839216980235*^9}, 3.761839264765439*^9, {3.7618394472794223`*^9, 
-   3.7618394654427176`*^9}, 3.7618395120536966`*^9, 3.7618395721386814`*^9, {
-   3.7618396657073345`*^9, 3.7618396830633373`*^9}, 3.7618397205053225`*^9},
- CellLabel->
-  "Out[157]=",ExpressionUUID->"ec55b8ca-b929-4b78-a187-9df17c723d7b"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"TestFunction", "[", "2", "]"}]], "Input",
- CellChangeTimes->{{3.761839504602914*^9, 3.761839508368517*^9}},
- CellLabel->
-  "In[158]:=",ExpressionUUID->"f69a1c5c-6c76-468d-9e09-752cd02801c3"],
-
-Cell[BoxData["1"], "Print",
+ InterpretationBox[
+  RowBox[{"\<\"Optimum block factor is \"\>", "\[InvisibleSpace]", "2"}],
+  SequenceForm["Optimum block factor is ", 2],
+  Editable->False]], "Print",
  CellChangeTimes->{
-  3.7618395120836163`*^9, 3.7618395721685777`*^9, {3.761839665725261*^9, 
-   3.761839683088271*^9}, 3.7618397205282583`*^9},
+  3.761842236841914*^9, 3.7618423498983736`*^9, 3.761842389643838*^9, 
+   3.76184242038035*^9, {3.761842641990487*^9, 3.7618426620633945`*^9}},
  CellLabel->
   "During evaluation of \
-In[158]:=",ExpressionUUID->"91608833-552a-41e4-937b-579765d54312"]
-}, Open  ]],
+In[260]:=",ExpressionUUID->"834bb949-4a43-4c0e-8908-56df1a51af6f"],
 
 Cell[BoxData[
- RowBox[{"GetBlock", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"5", ",", "4", ",", "3"}], "}"}], ",", "1", ",", "2", ",", "3"}], 
-  "]"}]], "Input",
- CellChangeTimes->{{3.7618395608500786`*^9, 3.7618395692959933`*^9}},
+ InterpretationBox[
+  TagBox[
+   FrameBox[GridBox[{
+      {
+       ItemBox[
+        TagBox[
+         RowBox[{"{", 
+          RowBox[{
+          "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+           ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+           "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", 
+           ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", 
+           "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+           ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", 
+           "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+           ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", 
+           "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+           ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", 
+           "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", 
+           ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", ",", 
+           "0", ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "0", 
+           ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "0", ",", 
+           "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", 
+           ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", 
+           "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+           TemplateBox[{"247401"},
+            "OutputSizeLimit`Skeleton"], ",", "1", ",", "0", ",", "1", ",", 
+           "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", 
+           ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+           "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+           ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", 
+           "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", 
+           ",", "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", 
+           "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", 
+           ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", 
+           "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", 
+           ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+           "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "0", 
+           ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", 
+           "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+           ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", 
+           "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", 
+           ",", "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", 
+           "1"}], "}"}],
+         Short[#, 5]& ],
+        BaseStyle->{Deployed -> False},
+        StripOnInput->False]},
+      {GridBox[{
+         {
+          TagBox[
+           TooltipBox[
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource[
+                "FEStrings", "sizeBriefExplanation"], StandardForm],
+               ImageSizeCache->{65., {3., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLText",
+             StripOnInput->False],
+            StyleBox[
+             DynamicBox[
+              ToBoxes[
+               FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"], 
+               StandardForm]], DynamicUpdating -> True, StripOnInput -> 
+             False]],
+           Annotation[#, 
+            Style[
+             Dynamic[
+              FEPrivate`FrontEndResource["FEStrings", "sizeExplanation"]], 
+             DynamicUpdating -> True], "Tooltip"]& ], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm],
+               ImageSizeCache->{52., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowLess"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 261, 28404338156357740907, 5/2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm],
+               ImageSizeCache->{62., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowMore"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 261, 28404338156357740907, 5 2],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm],
+               ImageSizeCache->{44., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeShowAll"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           
+           ButtonFunction:>OutputSizeLimit`ButtonFunction[
+            OutputSizeLimit`Defer, 261, 28404338156357740907, Infinity],
+           Enabled->True,
+           Evaluator->Automatic,
+           Method->"Queued"], 
+          ButtonBox[
+           PaneSelectorBox[{False->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm],
+               ImageSizeCache->{78., {1., 9.}}],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControl",
+             StripOnInput->False], True->
+            StyleBox[
+             StyleBox[
+              DynamicBox[ToBoxes[
+                FEPrivate`FrontEndResource["FEStrings", "sizeChangeLimit"], 
+                StandardForm]],
+              StripOnInput->False,
+              DynamicUpdating->True], "OSLControlActive",
+             StripOnInput->False]}, Dynamic[
+             CurrentValue["MouseOver"]],
+            Alignment->Center,
+            FrameMargins->0,
+            ImageSize->{Automatic, 25}],
+           Appearance->None,
+           BaselinePosition->Baseline,
+           ButtonFunction:>FrontEndExecute[{
+              FrontEnd`SetOptions[
+              FrontEnd`$FrontEnd, 
+               FrontEnd`PreferencesSettings -> {"Page" -> "Advanced"}], 
+              FrontEnd`FrontEndToken["PreferencesDialog"]}],
+           Evaluator->None,
+           Method->"Preemptive"]}
+        },
+        AutoDelete->False,
+        FrameStyle->GrayLevel[0.85],
+        GridBoxDividers->{"Columns" -> {False, {True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "ColumnsIndexed" -> {}, "Rows" -> {{False}}, 
+       "RowsIndexed" -> {}},
+     GridBoxItemSize->{
+      "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], 
+         Offset[1.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    BaseStyle->"OutputSizeLimit",
+    FrameMargins->{{12, 12}, {0, 15}},
+    FrameStyle->GrayLevel[0.85],
+    RoundingRadius->5,
+    StripOnInput->False],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  If[28404338156357740907 === $SessionID, 
+   Out[261], Message[
+     MessageName[Syntax, "noinfoker"]]; Missing["NotAvailable"]; 
+   Null]]], "Output",
+ CellChangeTimes->{
+  3.761842238932829*^9, 3.761842351963978*^9, 3.7618423918898897`*^9, 
+   3.761842422441849*^9, {3.761842641852845*^9, 3.761842666255904*^9}},
  CellLabel->
-  "In[159]:=",ExpressionUUID->"47b853f0-cdeb-4a62-bad9-36c4564155b0"]
+  "Out[261]=",ExpressionUUID->"33ab3e93-fd33-4ffd-9a4e-cf347966d3e9"],
+
+Cell[BoxData["351936"], "Output",
+ CellChangeTimes->{
+  3.761842238932829*^9, 3.761842351963978*^9, 3.7618423918898897`*^9, 
+   3.761842422441849*^9, {3.761842641852845*^9, 3.7618426662918053`*^9}},
+ CellLabel->
+  "Out[262]=",ExpressionUUID->"9d3c7170-4927-4f0a-95ad-dd3817c76be2"],
+
+Cell[BoxData["247624"], "Print",
+ CellChangeTimes->{
+  3.761842236841914*^9, 3.7618423498983736`*^9, 3.761842389643838*^9, 
+   3.76184242038035*^9, {3.761842641990487*^9, 3.7618426663556337`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"2a5a5c44-304e-4305-a19d-c59dbd78d758"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.761568203998049*^9, 3.7615682501418576`*^9}, {
+   3.7615687960583982`*^9, 3.7615688187011375`*^9}, {3.761568853195107*^9, 
+   3.761568854776908*^9}, 3.761568897563136*^9, 3.7615689717237625`*^9, 
+   3.76184057978659*^9, {3.7618418268290386`*^9, 3.761841849235985*^9}, {
+   3.7618418845892086`*^9, 3.7618418889045315`*^9}, {3.7618420653243895`*^9, 
+   3.7618420748660417`*^9}, 3.7618422164679074`*^9},
+ CellLabel->
+  "In[265]:=",ExpressionUUID->"0d7161d7-aadc-4f04-928a-e1816c81a689"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.761842275774568*^9, 3.7618423379382277`*^9},
+ CellLabel->
+  "In[266]:=",ExpressionUUID->"4c251b6c-d4b8-47b6-a650-9a4f54fb7dcd"]
 },
-WindowSize->{1920, 997},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowSize->{958, 988},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
 CellContext->Notebook,
 FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
@@ -795,19 +996,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 30488, 631, 1834, "Input",ExpressionUUID->"e617e23e-041d-4206-acc1-d548565b4fc3"],
-Cell[31049, 653, 307, 5, 28, "Input",ExpressionUUID->"6e51fd34-c6b7-4a4c-853d-2c9c8aaffeb7"],
-Cell[31359, 660, 331, 5, 28, "Input",ExpressionUUID->"11262ab7-21fc-4b78-9afc-d80e212be277"],
-Cell[31693, 667, 3241, 60, 143, "Input",ExpressionUUID->"f0d682da-6d61-47af-9285-e1bdf5bf82b4"],
+Cell[558, 20, 29715, 597, 1758, "Input",ExpressionUUID->"e617e23e-041d-4206-acc1-d548565b4fc3"],
+Cell[30276, 619, 307, 5, 28, "Input",ExpressionUUID->"6e51fd34-c6b7-4a4c-853d-2c9c8aaffeb7"],
+Cell[30586, 626, 331, 5, 28, "Input",ExpressionUUID->"11262ab7-21fc-4b78-9afc-d80e212be277"],
 Cell[CellGroupData[{
-Cell[34959, 731, 370, 6, 28, "Input",ExpressionUUID->"0d7161d7-aadc-4f04-928a-e1816c81a689"],
-Cell[35332, 739, 779, 11, 32, "Output",ExpressionUUID->"ec55b8ca-b929-4b78-a187-9df17c723d7b"]
+Cell[30942, 635, 3265, 62, 181, "Input",ExpressionUUID->"f0d682da-6d61-47af-9285-e1bdf5bf82b4"],
+Cell[34210, 699, 454, 10, 22, "Print",ExpressionUUID->"834bb949-4a43-4c0e-8908-56df1a51af6f"],
+Cell[34667, 711, 10190, 237, 200, "Output",ExpressionUUID->"33ab3e93-fd33-4ffd-9a4e-cf347966d3e9"],
+Cell[44860, 950, 281, 5, 32, "Output",ExpressionUUID->"9d3c7170-4927-4f0a-95ad-dd3817c76be2"],
+Cell[45144, 957, 302, 6, 22, "Print",ExpressionUUID->"2a5a5c44-304e-4305-a19d-c59dbd78d758"]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[36148, 755, 214, 4, 28, "Input",ExpressionUUID->"f69a1c5c-6c76-468d-9e09-752cd02801c3"],
-Cell[36365, 761, 278, 6, 22, "Print",ExpressionUUID->"91608833-552a-41e4-937b-579765d54312"]
-}, Open  ]],
-Cell[36658, 770, 319, 8, 28, "Input",ExpressionUUID->"47b853f0-cdeb-4a62-bad9-36c4564155b0"]
+Cell[45461, 966, 532, 8, 28, "Input",ExpressionUUID->"0d7161d7-aadc-4f04-928a-e1816c81a689"],
+Cell[45996, 976, 175, 3, 28, "Input",ExpressionUUID->"4c251b6c-d4b8-47b6-a650-9a4f54fb7dcd"]
 }
 ]
 *)
